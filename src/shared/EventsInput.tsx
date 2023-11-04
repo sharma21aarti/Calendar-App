@@ -16,7 +16,6 @@ const EventsInput: React.FC<EventProps> = ({
   setLocalData,
 }) => {
   //   const [title, setTitle] = useState<string>();
-  console.log(EventId, "Event");
   function handleSubmit() {
     // Step 1: Retrieve the existing array from local storage
     const storedData = localStorage.getItem("coustomEvents");

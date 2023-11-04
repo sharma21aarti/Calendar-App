@@ -53,9 +53,9 @@ const Calendar: React.FC<CalendarProps> = ({
   const prevMonthSunday = daysInPrevMonth - (startDay - 1);
 
   const sunday = 7 - startDay + 1;
-  console.log(sunday, "sunday");
   const totalWeeks = Math.floor((daysInMonth - sunday) / 7);
-  console.log(totalWeeks, "totalWeeks");
+  const today = new Date(); // Get the current date
+  const currentDay = today.getDate(); // Get the day of the month
 
   if (startDay === 0) {
     TotSun.push(startDay + 1);
@@ -151,7 +151,9 @@ const Calendar: React.FC<CalendarProps> = ({
                 className={`${
                   TotSun.includes(day) || bankHoliday.includes(day)
                     ? "day holiday"
-                    : " day "
+                    : day === currentDay
+                    ? "day today"
+                    : "day"
                 }`}
                 onClick={() =>
                   handleCoustomEvent(

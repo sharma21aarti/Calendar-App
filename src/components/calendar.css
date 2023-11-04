@@ -115,3 +115,74 @@ ol.day-grid li:nth-child(35) {
   border-radius: 10px;
   background-color: #cdc9c9;
 }
+
+.today {
+  background-color: rgb(182, 144, 144) !important;
+}
+
+.holiday-title {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  color: #eaeaea;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.holiday-title::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background-color: #eaeaea;
+}
+
+.nav {
+  width: 100%;
+  background-color: #ad1a1a;
+  display: flex;
+  align-items: center;
+}
+.nav > .nav-header {
+  flex: 0.95;
+  text-align: start;
+  padding-left: 1rem;
+}
+.nav > .nav-header > .nav-title {
+  font-size: 22px;
+  color: #fff;
+}
+.nav > .nav-list {
+  display: flex;
+  margin: 0;
+  padding: 10px;
+  gap: 2rem;
+}
+.nav > .nav-list > li {
+  list-style-type: none;
+}
+.nav > .nav-list > li a {
+  text-decoration: none;
+  color: #efefef;
+  cursor: pointer;
+}
+.nav > #nav-check {
+  display: none;
+}
+@media (max-width: 480px) {
+  .nav {
+    padding: 1rem;
+  }
+
+  .nav > .nav-list > li {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  .nav > #nav-check:checked ~ .nav-list {
+    height: calc(100vh - 50px);
+  }
+}

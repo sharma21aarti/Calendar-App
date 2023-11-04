@@ -44,7 +44,6 @@ const Modal: React.FC<ModalProps> = ({ show, close, children }) => {
   };
   const modalContainer = document.getElementById("modal");
   if (modalContainer) {
-    console.log("first modal");
     return createPortal(
       <>
         {show ? (
@@ -61,7 +60,6 @@ const Modal: React.FC<ModalProps> = ({ show, close, children }) => {
       modalContainer // Provide the container element
     );
   } else {
-    console.log("second modal");
     return null;
   }
 };

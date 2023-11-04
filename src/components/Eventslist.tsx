@@ -34,21 +34,23 @@ const Eventslist: React.FC<EventProps> = ({
   const dateObject = new Date(date);
 
   return (
-    <div className="container">
-      <div className="header">Event List</div>
-      <div>
-        {holiday
-          .filter((data) => {
-            const holidayMonth = new Date(data.date);
-            return dateObject.getMonth() === holidayMonth.getMonth();
-          })
-          .map((filteredData, index) => (
-            <div key={index}>
-              {filteredData.title}
-              {filteredData.date}
-              {/* You can include other properties as needed */}
-            </div>
-          ))}
+    <div className="calendar">
+      <div className="container">
+        <div className="header">Event List</div>
+        <div>
+          {holiday
+            .filter((data) => {
+              const holidayMonth = new Date(data.date);
+              return dateObject.getMonth() === holidayMonth.getMonth();
+            })
+            .map((filteredData, index) => (
+              <div key={index} className="holiday-title">
+                {filteredData.title}
+                {filteredData.date}
+                {/* You can include other properties as needed */}
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

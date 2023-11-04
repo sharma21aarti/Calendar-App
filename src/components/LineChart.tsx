@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, useMemo } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -56,7 +56,16 @@ export const data = {
 };
 
 const LineChart = () => {
-  return <Line options={options} data={data} />;
+  const Navbar = useMemo(
+    () => React.lazy(() => import(`../shared/Navbar`)),
+    []
+  );
+  return (
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <Navbar />
+      <Line options={options} data={data} />
+    </Suspense>
+  );
 };
 
 export default LineChart;
